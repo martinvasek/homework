@@ -1,0 +1,84 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /services/register:
+    post:
+      tags:
+        - services
+      summary: Send a message with service information to exchange
+      description: Send a message with service information to exchange
+      operationId: register
+      responses:
+        '200':
+          description: OK
+  /services/{name}:
+    get:
+      tags:
+        - services
+      summary: Returns a registred service by name
+      description: Returns a registred service by name
+      operationId: getService
+      parameters:
+        - name: name
+          in: path
+          description: Name of the service
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceDTO'
+  /services/current:
+    get:
+      tags:
+        - services
+      summary: Returns the current running service information
+      description: Returns the current running service information
+      operationId: getCurrent
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceDTO'
+  /services/:
+    get:
+      tags:
+        - services
+      summary: Returns all registered services
+      description: Returns all registered services
+      operationId: getAllServices
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ServiceDTO'
+components:
+  schemas:
+    ServiceDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        port:
+          type: string
+        registerTime:
+          type: string
+          format: date-time
