@@ -1,0 +1,8 @@
+services:
+  homework-martinvasek:
+    image: homework-martinvasek:0.0.1-SNAPSHOT
+    environment:
+      - 'SPRING_APPLICATION_JSON={"spring.rabbitmq.addresses":"${RABBIT_ADDRESS}"}'
+      - APP_EXTERNAL_PORT: 44321
+    ports:
+      - 44321:44321

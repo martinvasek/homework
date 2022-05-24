@@ -1,0 +1,4 @@
+spring:
+  rabbitmq:
+    addresses: ${embedded.rabbitmq.host}:${embedded.rabbitmq.port}
+    password: ${embedded.rabbitmq.password}

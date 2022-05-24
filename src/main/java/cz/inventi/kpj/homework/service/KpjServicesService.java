@@ -13,5 +13,5 @@ public interface KpjServicesService {
 
     void register();
 
-    Long saveKpjService(ServiceDTO kpjService);
+    void saveKpjService(ServiceDTO kpjService);
 }

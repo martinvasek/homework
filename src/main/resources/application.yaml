@@ -1,0 +1,17 @@
+server:
+  error:
+    include-message: always
+  port: ${APP_EXTERNAL_PORT:8080}
+
+spring:
+  rabbitmq:
+    addresses: ${RABBIT_ADDRESS:amqp://guest:guest@host.docker.internal}
+
+app:
+  external-port: ${APP_EXTERNAL_PORT:8080}
+  queue-name: kpj.martinvasek
+  name: martinvasek
+
+logging:
+  level:
+    cz.inventi.kpj.homework: DEBUG
